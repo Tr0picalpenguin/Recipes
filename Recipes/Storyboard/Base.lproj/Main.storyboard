@@ -111,8 +111,15 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="tpT-5b-mos">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="emV-MD-KWA"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="emV-MD-KWA">
+                            <connections>
+                                <action selector="addRecipeButtonTapped:" destination="3Lt-yn-oMM" id="p5d-c8-rvl"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="categoryTitletextField" destination="8JZ-8B-Gpy" id="uKG-Kz-Ibd"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MTV-gg-Ezi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

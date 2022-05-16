@@ -9,6 +9,9 @@ import UIKit
 
 class RecipeListTableViewController: UITableViewController {
     
+    // MARK: - Outlets
+    @IBOutlet weak var categoryTitletextField: UITextField!
+    
     // MARK: - Properties
     var category: RecipeCategory?
     
@@ -59,6 +62,15 @@ class RecipeListTableViewController: UITableViewController {
         let recipe = category?.recipes[indexPath.row]
         destination.recipe = recipe
     }
+    
+    // MARK: - Actions
+    @IBAction func addRecipeButtonTapped(_ sender: Any) {
+        guard let category = category else {return}
+        RecipeController.sharedInstance.createRecipe(in: category)
+        tableView.reloadData()
+        
+    }
+    
 } // End of Class
 
 
