@@ -77,7 +77,7 @@
                             <textInputTraits key="textInputTraits"/>
                         </textField>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="8Sy-J9-Rn1" detailTextLabel="FoU-S8-2Ag" style="IBUITableViewCellStyleSubtitle" id="Foi-I4-DYC">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="recipeCell" textLabel="8Sy-J9-Rn1" detailTextLabel="FoU-S8-2Ag" style="IBUITableViewCellStyleSubtitle" id="Foi-I4-DYC">
                                 <rect key="frame" x="0.0" y="78.5" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Foi-I4-DYC" id="GSe-Ph-USq">
@@ -101,7 +101,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="lBv-x3-gf4" kind="show" id="mFq-bx-1pI"/>
+                                    <segue destination="lBv-x3-gf4" kind="show" identifier="toRecipeDetailViewController" id="mFq-bx-1pI"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

@@ -14,6 +14,9 @@ class RecipeDetailViewController: UIViewController {
     @IBOutlet weak var cookTimeTextField: UITextField!
     @IBOutlet weak var recipeDescriptionTextView: UITextView!
     
+  // MARK: - Properties
+    var recipe: Recipe?
+    
     // MARK: Lifecycle
     
     override func viewDidLoad() {

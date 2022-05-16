@@ -15,6 +15,11 @@ class RecipeController {
     // MARK: - Source of Truth
     private(set) var categories: [RecipeCategory] = []
     
+    // MARK: - Initializers
+    init() {
+        loadFromPersistentStore()
+    }
+    
     // MARK: - CRUD
     
     // MARK: - Categories
