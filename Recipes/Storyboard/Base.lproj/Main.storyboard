@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="P4i-cs-LPB" detailTextLabel="Mz3-Dq-Mv7" style="IBUITableViewCellStyleSubtitle" id="5I9-nc-3IA">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="categoryCell" textLabel="P4i-cs-LPB" detailTextLabel="Mz3-Dq-Mv7" style="IBUITableViewCellStyleSubtitle" id="5I9-nc-3IA">
                                 <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5I9-nc-3IA" id="NQE-Fz-nVI">
@@ -41,7 +41,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="3Lt-yn-oMM" kind="show" id="2Uw-YZ-iKe"/>
+                                    <segue destination="3Lt-yn-oMM" kind="show" identifier="recipeListViewController" id="2Uw-YZ-iKe"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -51,7 +51,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="ygy-cB-yQj">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="UA4-dp-vbz"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="UA4-dp-vbz">
+                            <connections>
+                                <action selector="addCategoryButtonTapped:" destination="aUZ-qX-Eu6" id="YtI-qp-M5f"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1XC-tT-0fk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

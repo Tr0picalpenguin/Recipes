@@ -9,6 +9,8 @@ import UIKit
 
 class RecipeListTableViewController: UITableViewController {
 
+    var category: RecipeCategory?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
