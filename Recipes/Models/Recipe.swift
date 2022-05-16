@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Recipe {
+class Recipe: Codable {
     
     let id: UUID
     var title: String

@@ -25,6 +25,7 @@ class RecipeController {
         categories.append(category)
         // Save it
         saveToPersistentStore()
+    }
         
         func updateRecipeCategory(recipeToUpdate: Recipe, title: String) {
             // Update the values
@@ -69,13 +70,42 @@ class RecipeController {
         
         // MARK: - Persistence
         
-        func saveToPersistentStore() {
-            
+    func saveToPersistentStore() {
+            // 1. Get the URL you want to save the data too
+            guard let url = fileURL else {return}
+            do {
+                // 2. Convert the swift struct or class to JSON
+                let data = try JSONEncoder().encode(categories)
+                // 3. Save data from 2 to address from 1
+                try data.write(to: url)
+            } catch let error {
+                print(error)
+            }
         }
         
-        func loadFromPersistentStore() {
+    func loadFromPersistentStore() {
+            // 1. Get the URL you want to load the data from
+            guard let url = fileURL else {return}
+            do {
+                // 2. Load the JSON data from that URL
+                let data = try Data(contentsOf: url)
+                // 3. Convert AKA Decode the JSON Data into our Custom Class
+                let categories = try JSONDecoder().decode([RecipeCategory].self, from: data)
+                // Set the SOT to the array we just decoded -> loaded
+                self.categories = categories
             
+            } catch let error {
+                print(error.localizedDescription)
+            }
         }
         
-    }
+        // Computed Propery
+        // A Computed Property is a property whose value is assigned the result of a computation. AKA a func.
+        private var fileURL: URL? {
+            // find the directory
+            guard let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {return nil}
+            // Choose the url
+            let url = documentsDirectory.appendingPathComponent("recipes.json")
+            return url
+        }
 } // End of Class
