@@ -177,6 +177,9 @@
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="star.fill" catalog="system"/>
+                                        <connections>
+                                            <action selector="favoriteButtonTapped:" destination="lBv-x3-gf4" eventType="touchUpInside" id="aC5-Ar-mbc"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -256,6 +259,7 @@
                     <connections>
                         <outlet property="calorieCountTextField" destination="GXF-75-q6E" id="uQd-P3-6il"/>
                         <outlet property="cookTimeTextField" destination="Yym-or-ir4" id="1BG-Td-cPJ"/>
+                        <outlet property="favoriteButton" destination="Lvn-3p-rB1" id="tUH-Ad-ZUl"/>
                         <outlet property="recipeDescriptionTextView" destination="xzq-Bc-spi" id="D62-oM-EoD"/>
                         <outlet property="recipeTitleTextField" destination="esr-uZ-uru" id="Smu-CN-dtv"/>
                     </connections>

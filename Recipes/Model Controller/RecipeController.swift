@@ -47,6 +47,11 @@ class RecipeController {
             // Save
             saveToPersistentStore()
         }
+    // Day 2
+    func toggleIsFavorite(recipe: Recipe) {
+        recipe.isFavorite.toggle()
+        saveToPersistentStore()
+    }
         
         // MARK: - Recipes
         func createRecipe(title: String = "Untitled Recipe", description: String = "Resipe Description", calories: Int = 0, cookTime: Int = 0, in category: RecipeCategory) {
@@ -70,7 +75,6 @@ class RecipeController {
             category.recipes.remove(at: index)
             // Save
             saveToPersistentStore()
-            
         }
         
         // MARK: - Persistence

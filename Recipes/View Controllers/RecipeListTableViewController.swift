@@ -18,6 +18,10 @@ class RecipeListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -37,12 +41,13 @@ class RecipeListTableViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "recipeCell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "recipeCell", for: indexPath) as? RecipeTableViewCell else {return UITableViewCell()}
+        
         guard let category = category else {return cell}
         let recipe = category.recipes[indexPath.row]
-        let calories = recipe.calories ?? 0
-        cell.textLabel?.text = recipe.title
-        cell.detailTextLabel?.text = "\(calories) Cal"
+        cell.recipe = recipe
+        // SET THE GOD DAMN DELEGATE!
+        cell.delegate = self
         return cell
     }
     
@@ -81,4 +86,11 @@ class RecipeListTableViewController: UITableViewController {
     
 } // End of Class
 
+extension RecipeListTableViewController: RecipeTableViewCellDelegate {
+    func toggleFavoriteButtonWasTapped(cell: RecipeTableViewCell) {
+        guard let recipe = cell.recipe else {return}
+        RecipeController.sharedInstance.toggleIsFavorite(recipe: recipe)
+        cell.updateViews()
+    }
+}
 
