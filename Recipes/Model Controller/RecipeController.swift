@@ -32,9 +32,9 @@ class RecipeController {
         saveToPersistentStore()
     }
         
-        func updateRecipeCategory(recipeToUpdate: Recipe, title: String) {
+        func updateRecipeCategory(categoryToUpdate: RecipeCategory, title: String) {
             // Update the values
-            recipeToUpdate.title = title
+            categoryToUpdate.title = title
             // <---- Assign the value of 'newTitle' to the property 'title' of the 'categoryToUpdate/ object.
             // Save
             saveToPersistentStore()

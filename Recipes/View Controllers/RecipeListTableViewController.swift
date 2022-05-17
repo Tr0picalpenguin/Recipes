@@ -17,6 +17,14 @@ class RecipeListTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        guard let category = category, let newTitle = categoryTitletextField.text else {return}
+        
+        RecipeController.sharedInstance.updateRecipeCategory(categoryToUpdate: category, title: newTitle)
+        
         
     }
     
